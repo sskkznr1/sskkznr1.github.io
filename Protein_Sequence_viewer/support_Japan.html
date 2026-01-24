@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protein Sequence Viewer サポート</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        h2 {
+            color: #34495e;
+            font-size: 1.5em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 12px;
+            border-left: 4px solid #3498db;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .info-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .answer {
+            color: #555;
+        }
+        
+        .contact-box {
+            background-color: #f0f8ff;
+            border: 2px solid #3498db;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 6px;
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Protein Sequence Viewer サポート</h1>
+        
+        <h2>アプリについて</h2>
+        <p>Protein Sequence Viewer は、Gene name または UniProt ID（Accession / Entry name）から、UniProtKB/Swiss-Prot（reviewed）のタンパク質配列（1-letter）と Length（aa）を素早く確認できる iOS アプリです。</p>
+        <p>基本は canonical 配列を表示し、isoform が存在する場合はプルダウンで切り替えて表示できます。</p>
+        <p>また、Human / Mouse / Rat / Yeast のデータベースを端末にダウンロードすることで、オフラインでも検索・閲覧できます。</p>
+        
+        <h2>データ出典・ライセンス</h2>
+        <div class="info-box">
+            <p>本アプリは UniProt のデータを参照しています。</p>
+            <p>UniProt のデータは Creative Commons Attribution 4.0 International（CC BY 4.0） の下で提供されています。</p>
+            <p>本アプリは UniProt と提携・関係・承認を受けたものではありません。</p>
+        </div>
+        
+        <h2>免責事項（重要）</h2>
+        <div class="warning-box">
+            <ul>
+                <li>本アプリが表示する情報は参考用途であり、正確性・完全性・最新性を保証するものではありません。</li>
+                <li>医療上の判断や診断、治療の代替として利用しないでください。</li>
+                <li>権利関係（第三者の特許・商標等）については、利用者の責任において確認してください。</li>
+                <li>公式な情報は UniProt の原典をご確認ください。</li>
+            </ul>
+        </div>
+        
+        <h2>オフラインデータについて</h2>
+        <ul>
+            <li>オフライン機能は、ユーザー操作により species ごとのデータを端末に保存し、ローカル検索できるようにするものです。</li>
+            <li>端末の空き容量や通信環境により、ダウンロードに時間がかかる場合があります。</li>
+            <li>オフラインデータは UniProt の更新に追随しない場合があります。必要に応じてアプリ内の「更新」機能をご利用ください。</li>
+        </ul>
+        
+        <h2>広告（AdMob）について</h2>
+        <ul>
+            <li>本アプリは運営のため Google AdMob のバナー広告を表示します。</li>
+            <li>広告の表示・配信は端末の設定、通信環境、同意状況等により変わる場合があります。</li>
+        </ul>
+        
+        <h2>トラッキング（ATT）とプライバシー</h2>
+        <ul>
+            <li>本アプリでは、広告の最適化等の目的で App Tracking Transparency（ATT） の許可を求める場合があります。</li>
+            <li>許可しなくても、アプリの主要機能（配列検索・表示）は利用できます。</li>
+            <li>App Store の「プライバシー」欄に記載のとおり、広告配信のためにデバイス情報等が利用される場合があります。</li>
+        </ul>
+        
+        <h2>よくある質問（FAQ）</h2>
+        
+        <div class="faq-item">
+            <div class="question">Q1. Gene名で検索すると候補が複数出ます</div>
+            <div class="answer">A. 同一の Gene に複数のエントリが存在する場合があります。候補一覧から目的のエントリを選択してください（reviewed のみ表示）。</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="question">Q2. isoform が表示されません</div>
+            <div class="answer">A. 対象エントリに isoform 情報がない場合は、切替メニューは表示されません。</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="question">Q3. オフラインで検索できません</div>
+            <div class="answer">A. 対象 species のオフラインデータをダウンロードしているかご確認ください。ダウンロードが完了していない場合は、設定画面から再度お試しください。</div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="question">Q4. 見つからない（No results）と表示されます</div>
+            <div class="answer">A. 入力のスペル、species 選択、対象が Swiss-Prot（reviewed）に存在するかをご確認ください。</div>
+        </div>
+        
+        <h2>お問い合わせ</h2>
+        <div class="contact-box">
+            <p>不具合報告・ご要望は、以下までご連絡ください。</p>
+            <p><strong>連絡先：</strong><a href="mailto:ios.appssk@gmail.com">ios.appssk@gmail.com</a></p>
+            <p><strong>可能なら添付してほしい情報：</strong></p>
+            <ul>
+                <li>端末機種</li>
+                <li>iOS バージョン</li>
+                <li>検索したキーワード</li>
+                <li>再現手順</li>
+                <li>スクリーンショット</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2026 Protein Sequence Viewer. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
