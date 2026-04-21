@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー - 家計簿アプリ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a2e;
+      --ink-light: #4a4a6a;
+      --accent: #2d7a6e;
+      --accent-light: #3a9e8f;
+      --bg: #f8f6f1;
+      --bg-card: #ffffff;
+      --border: #ddd9d0;
+      --shadow: rgba(45, 122, 110, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    /* Header */
+    header {
+      background: var(--ink);
+      color: #f0ede6;
+      padding: 48px 24px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.015) 40px,
+        rgba(255,255,255,0.015) 80px
+      );
+    }
+
+    .header-label {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+
+    header h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 5vw, 32px);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .header-app {
+      font-size: 13px;
+      color: rgba(240, 237, 230, 0.6);
+      letter-spacing: 0.1em;
+    }
+
+    /* Main */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Meta info */
+    .meta-bar {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      margin-bottom: 48px;
+      border-radius: 2px;
+    }
+
+    .meta-item {
+      font-size: 13px;
+    }
+
+    .meta-item .label {
+      color: var(--ink-light);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .meta-item .value {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 44px;
+    }
+
+    h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2 .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: var(--accent);
+      color: white;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      margin: 20px 0 10px;
+      letter-spacing: 0.03em;
+    }
+
+    p {
+      color: var(--ink-light);
+      margin-bottom: 14px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 14px;
+    }
+
+    ul li {
+      color: var(--ink-light);
+      padding: 5px 0 5px 18px;
+      position: relative;
+      font-size: 14px;
+    }
+
+    ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 20px 24px;
+      margin: 16px 0;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .note {
+      font-size: 13px;
+      color: var(--ink-light);
+      opacity: 0.8;
+      font-style: italic;
+    }
+
+    /* Contact section */
+    .contact-block {
+      background: var(--ink);
+      color: #f0ede6;
+      padding: 28px 32px;
+      border-radius: 2px;
+      margin-top: 16px;
+    }
+
+    .contact-block p {
+      color: rgba(240, 237, 230, 0.75);
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .contact-block a {
+      color: var(--accent-light);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(58, 158, 143, 0.4);
+      transition: border-color 0.2s;
+    }
+
+    .contact-block a:hover {
+      border-color: var(--accent-light);
+    }
+
+    /* External links */
+    .external-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .ext-link {
+      display: block;
+      padding: 12px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      text-decoration: none;
+      color: var(--ink-light);
+      font-size: 13px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .ext-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .ext-link span {
+      display: block;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--ink-light);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 480px) {
+      .meta-bar { flex-direction: column; gap: 14px; }
+      main { padding: 32px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <p class="header-label">Privacy Policy</p>
+  <h1>プライバシーポリシー</h1>
+  <p class="header-app">家計簿アプリ（仮称）</p>
+</header>
+
+<main>
+
+  <div class="meta-bar">
+    <div class="meta-item">
+      <span class="label">最終更新日</span>
+      <span class="value">2026年4月22日</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">アプリ名</span>
+      <span class="value">家計簿アプリ（仮称）</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">運営者</span>
+      <span class="value">Kazunari Sasaki</span>
+    </div>
+  </div>
+
+  <!-- 1. はじめに -->
+  <section>
+    <h2><span class="section-num">1</span>はじめに</h2>
+    <p>
+      本プライバシーポリシーは、家計簿アプリ（以下「本アプリ」）における利用者情報の取扱いについて定めるものです。
+      利用者は本アプリを利用することで、本ポリシーに同意したものとみなされます。
+    </p>
+  </section>
+
+  <!-- 2. 取得する情報 -->
+  <section>
+    <h2><span class="section-num">2</span>取得する情報</h2>
+    <p>
+      本アプリは、アカウント登録やログインを必要とせず、運営者が利用者の氏名・住所・電話番号等の個人情報を直接収集することは原則ありません。
+    </p>
+    <p>
+      ただし、本アプリでは広告配信および安定運用のため、第三者サービス（Google AdMob / Google Mobile Ads SDK）により、以下の情報が収集される場合があります。
+    </p>
+
+    <h3>2.1 広告配信に伴い収集される可能性がある情報（AdMob）</h3>
+    <div class="highlight-box">
+      <ul>
+        <li>IPアドレス</li>
+        <li>デバイス情報（端末モデル、OS、言語設定など）</li>
+        <li>デバイスID / 広告関連ID（例：広告識別子等）</li>
+        <li>クラッシュログ、診断情報、パフォーマンスデータ</li>
+        <li>アプリ内での操作に関する情報（広告の表示・タップ等のユーザー操作）</li>
+      </ul>
+      <p class="note">※ 上記は SDK の仕様や設定により変動します。</p>
+    </div>
+
+    <h3>2.2 ATT（App Tracking Transparency）に関する情報</h3>
+    <p>
+      iOS では、利用者の許可がある場合に限り、広告最適化等の目的でトラッキング関連のデータ（例：IDFA）が利用されることがあります。
+      許可のリクエスト理由は iOS の仕組みにより表示されます。
+    </p>
+
+    <h3>2.3 家計データについて</h3>
+    <p>
+      収入・支出・残高等の家計データは、お客様のデバイス内にのみ保存され、運営者のサーバーへ送信・収集されることはありません。
+    </p>
+
+    <h3>2.4 お問い合わせ時に取得する情報</h3>
+    <p>
+      利用者からお問い合わせをいただいた場合、対応に必要な範囲で、メールアドレス、問い合わせ内容、端末情報（機種 / OS バージョン等）を取得することがあります。
+    </p>
+  </section>
+
+  <!-- 3. 利用目的 -->
+  <section>
+    <h2><span class="section-num">3</span>情報の利用目的</h2>
+    <p>取得した情報は、以下の目的で利用します。</p>
+    <ul>
+      <li>広告の配信、表示、測定、最適化</li>
+      <li>不正行為の防止、セキュリティ確保</li>
+      <li>アプリの品質改善（クラッシュ解析、動作改善）</li>
+      <li>お問い合わせ対応</li>
+    </ul>
+  </section>
+
+  <!-- 4. 第三者提供 -->
+  <section>
+    <h2><span class="section-num">4</span>第三者提供</h2>
+    <p>
+      本アプリは、広告配信のために Google のサービス（AdMob / Google Mobile Ads SDK）を利用します。
+      これに伴い、Google が定めるプライバシーポリシー等に従って情報が取り扱われます。
+    </p>
+    <p>
+      上記以外の第三者へ利用者情報を提供することは、法令に基づく場合を除き行いません。
+    </p>
+  </section>
+
+  <!-- 5. 広告のパーソナライズとオプトアウト -->
+  <section>
+    <h2><span class="section-num">5</span>広告のパーソナライズとオプトアウト</h2>
+    <ul>
+      <li>iOS の「トラッキング許可（ATT）」を拒否した場合でも、本アプリの主要機能（家計の記録・集計）は利用できます。</li>
+      <li>許可の有無により、配信される広告がパーソナライズされない形になる場合があります。</li>
+    </ul>
+  </section>
+
+  <!-- 6. データの保存と管理 -->
+  <section>
+    <h2><span class="section-num">6</span>データの保存と管理</h2>
+    <p>
+      家計データはデバイス内に保存されます。アプリを削除した場合、当該データは消去されます。
+      バックアップや端末変更時のデータ移行については、OS 標準の機能をご利用ください。
+    </p>
+    <p>
+      広告配信に伴うログ等は第三者（Google）側で一定期間保持される場合があります。
+    </p>
+  </section>
+
+  <!-- 7. セキュリティ -->
+  <section>
+    <h2><span class="section-num">7</span>セキュリティ</h2>
+    <p>
+      運営者は、取得した情報の漏えい・滅失・毀損等を防止するために合理的な安全管理措置を講じます。
+    </p>
+  </section>
+
+  <!-- 8. 未成年のプライバシー -->
+  <section>
+    <h2><span class="section-num">8</span>未成年のプライバシー</h2>
+    <p>
+      本アプリは一般利用を想定しており、未成年の個人情報を意図的に収集することはありません。
+      保護者の方は、未成年が本アプリを利用する場合、内容をご確認ください。
+    </p>
+  </section>
+
+  <!-- 9. 本ポリシーの変更 -->
+  <section>
+    <h2><span class="section-num">9</span>本ポリシーの変更</h2>
+    <p>
+      法令やサービス仕様変更等に応じて、本ポリシーを改定することがあります。
+      重要な変更がある場合は、アプリ内またはサポートページ等で告知します。
+    </p>
+  </section>
+
+  <!-- 10. お問い合わせ -->
+  <section>
+    <h2><span class="section-num">10</span>お問い合わせ窓口</h2>
+    <p>本ポリシーに関するお問い合わせは、以下までご連絡ください。</p>
+    <div class="contact-block">
+      <p><strong style="color:#f0ede6;">運営者：</strong>Kazunari Sasaki</p>
+      <p><strong style="color:#f0ede6;">連絡先：</strong><a href="mailto:ios.appssk@gmail.com">ios.appssk@gmail.com</a></p>
+    </div>
+  </section>
+
+  <!-- 外部リンク -->
+  <section>
+    <h2><span class="section-num">✦</span>外部サービスのポリシー（参照）</h2>
+    <div class="external-links">
+      <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener" class="ext-link">
+        <span>Google</span>
+        広告に関するポリシー（Advertising – Privacy &amp; Terms）
+      </a>
+      <a href="https://developers.google.com/admob/ios/privacy/data-disclosure" target="_blank" rel="noopener" class="ext-link">
+        <span>Google AdMob</span>
+        Google Mobile Ads SDK（iOS）データ開示（App Store data disclosure）
+      </a>
+      <a href="https://developer.apple.com/documentation/bundleresources/information-property-list/nsusertrackingusagedescription" target="_blank" rel="noopener" class="ext-link">
+        <span>Apple</span>
+        NSUserTrackingUsageDescription（ATTの説明）
+      </a>
+      <a href="https://developer.apple.com/support/third-party-SDK-requirements/" target="_blank" rel="noopener" class="ext-link">
+        <span>Apple</span>
+        Third-party SDK requirements（プライバシーマニフェスト等）
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 家計簿アプリ. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
